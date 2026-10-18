@@ -1,0 +1,351 @@
+/* =========================
+   1. Global Reset
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #6c4cff;
+    --primary-dark: #5135d9;
+    --text-dark: #20243a;
+    --text-light: #73788c;
+    --border: #e1e4ee;
+    --white: #ffffff;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 16px;
+
+    background: linear-gradient(135deg,
+            #eef0ff 0%,
+            #f7f4ff 50%,
+            #e8f3ff 100%);
+
+    color: var(--text-dark);
+}
+
+
+/* =========================
+   2. Main Form Card
+========================= */
+
+.signup-container,
+.login-container {
+    width: 100%;
+    max-width: 430px;
+    padding: 38px 34px;
+
+    background: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+
+    box-shadow: 0 18px 55px rgba(49, 45, 100, 0.12);
+
+    animation: cardAppear 0.5s ease;
+}
+
+
+/* =========================
+   3. Header
+========================= */
+
+.signup-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.logo {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(135deg,
+            var(--primary),
+            #9b75ff);
+
+    color: var(--white);
+    border-radius: 18px;
+
+    font-size: 27px;
+    font-weight: bold;
+
+    box-shadow: 0 8px 20px rgba(108, 76, 255, 0.25);
+}
+
+.signup-header h1 {
+    font-size: 27px;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+.signup-header p {
+    color: var(--text-light);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   4. Form Fields
+========================= */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+input {
+    width: 100%;
+    min-width: 0;
+    padding: 14px 15px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: #fcfcff;
+    color: var(--text-dark);
+
+    font-size: 14px;
+    font-family: inherit;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+input::placeholder {
+    color: #a1a5b5;
+}
+
+input:hover {
+    border-color: #c4b8ff;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: var(--white);
+
+    box-shadow: 0 0 0 4px rgba(108, 76, 255, 0.10);
+}
+
+
+/* =========================
+   5. Password Field
+========================= */
+
+.password-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 70px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+
+    padding: 5px 2px;
+
+    background: transparent;
+    color: var(--primary);
+
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.toggle-password:hover {
+    background: transparent;
+    color: var(--primary-dark);
+}
+
+.field-hint {
+    color: var(--text-light);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   6. Submit Button
+========================= */
+
+.signup-button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 3px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: linear-gradient(135deg,
+            var(--primary),
+            #8665ff);
+
+    color: var(--white);
+
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+
+    cursor: pointer;
+
+    box-shadow: 0 7px 18px rgba(108, 76, 255, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.signup-button:hover {
+    background: linear-gradient(135deg,
+            var(--primary-dark),
+            #7350f0);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 22px rgba(108, 76, 255, 0.28);
+}
+
+.signup-button:active {
+    transform: translateY(0);
+}
+
+.signup-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* =========================
+   7. Success / Error Message
+========================= */
+
+.message {
+    min-height: 0;
+    margin-top: 2px;
+
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.message:empty {
+    display: none;
+}
+
+
+/* =========================
+   8. Footer Links
+========================= */
+
+.signup-footer {
+    margin-top: 25px;
+    text-align: center;
+
+    color: var(--text-light);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.signup-footer a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.signup-footer a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+
+/* =========================
+   9. Animation
+========================= */
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   10. Mobile Responsive
+========================= */
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px 14px;
+    }
+
+    .signup-container,
+    .login-container {
+        padding: 28px 22px;
+        border-radius: 16px;
+    }
+
+    .signup-header h1 {
+        font-size: 24px;
+    }
+
+    .logo {
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+    }
+
+    input {
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    .password-wrapper input {
+        padding-right: 65px;
+    }
+}
